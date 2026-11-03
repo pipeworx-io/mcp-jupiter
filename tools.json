@@ -1,0 +1,53 @@
+[
+  {
+    "name": "jupiter_price",
+    "description": "USD price, 24h change, and aggregated liquidity for one or more Solana token mints, aggregated by Jupiter across every DEX/AMM it indexes (not a single pool — use the dexscreener pack for one specific pool). Up to 50 mints per call.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "mints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Solana token mint addresses (base58), e.g. [\"So11111111111111111111111111111111111111112\"] for SOL. Max 50.",
+          "minItems": 1,
+          "maxItems": 50
+        }
+      },
+      "required": [
+        "mints"
+      ]
+    }
+  },
+  {
+    "name": "jupiter_quote",
+    "description": "Best swap route and quote between two Solana token mints via Jupiter Aggregator — expected output amount, price impact, and the route (which AMMs/DEXes it crosses). Amount is in the INPUT token's base units (e.g. lamports for SOL: 1 SOL = 1_000_000_000).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input_mint": {
+          "type": "string",
+          "description": "Input token mint address (base58)."
+        },
+        "output_mint": {
+          "type": "string",
+          "description": "Output token mint address (base58)."
+        },
+        "amount": {
+          "type": "string",
+          "description": "Amount of input_mint to swap, in base units (integer, as a string or number — e.g. \"1000000000\" for 1 SOL)."
+        },
+        "slippage_bps": {
+          "type": "number",
+          "description": "Max slippage in basis points. Default 50 (0.5%)."
+        }
+      },
+      "required": [
+        "input_mint",
+        "output_mint",
+        "amount"
+      ]
+    }
+  }
+]

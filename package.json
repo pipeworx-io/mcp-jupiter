@@ -1,0 +1,33 @@
+{
+  "name": "@pipeworx/mcp-jupiter",
+  "version": "0.1.0",
+  "description": "Jupiter MCP — Solana cross-DEX token price and swap-quote data",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "mcp-jupiter": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "jupiter"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pipeworx-io/mcp-jupiter.git"
+  },
+  "mcpName": "io.github.pipeworx-io/jupiter",
+  "pipeworx": {
+    "mode": "gateway",
+    "slug": "jupiter",
+    "gatewaySlug": "jupiter",
+    "sourceHash": "v1-6b13477c9e510d40a4b4a388eabbf0726e5862970cf7a711f83cc3b8af1d9120",
+    "sourceCommit": "bed7faa04e7276899b5e3870ef11c98625371f2b"
+  }
+}
